@@ -1,0 +1,111 @@
+<ae cat="FIXED" t="LOGOUT" ts="2014-03-06T15:43:10.768-08:00" src="tdk-dispatch-01.ptcloud.int" tr="true" ra="10.160.237.248">
+  <msg>User logged out: User[id = 2, login = job_server_user]</msg>
+</ae>
+<ae cat="FIXED" t="LOGIN" ts="2014-03-06T16:00:27.908-08:00" src="tdk-dispatch-01.ptcloud.int" tr="true" ra="10.201.68.156">
+  <s u="admin" uid="1" sid="8135120517134114828"></s>
+  <msg>User logged in: User[id = 1, login = admin]</msg>
+</ae>
+<ae cat="FIXED" t="SEARCH" ts="2014-03-06T16:01:27.759-08:00" src="tdk-dispatch-01.ptcloud.int" tr="true" ra="10.201.68.156">
+  <s u="admin" uid="1" sid="8135120517134114828"></s>
+  <msg><![CDATA[
+Query (search) succeeded:Realm[id = 7537946947818401543]
+SearchQuery: Page Size: 15
+Sort Fields: 
+START INTERSECT0
+    Term: <untitled Person>
+    objType = com.palantir.object.event
+END INTERSECT0
+
+Results: {}, number of results: 0
+]]></msg>
+</ae>
+<ae cat="FIXED" t="SEARCH" ts="2014-03-06T16:01:27.759-08:00" src="tdk-dispatch-01.ptcloud.int" tr="true" ra="10.201.68.156">
+  <s u="admin" uid="1" sid="8135120517134114828"></s>
+  <msg><![CDATA[
+Query (search) succeeded:Realm[id = 7537946947818401543]
+SearchQuery: Page Size: 15
+Sort Fields: 
+START INTERSECT0
+    Term: <untitled Person>
+    objType = com.palantir.object.entity
+END INTERSECT0
+
+Results: {}, number of results: 0
+]]></msg>
+</ae>
+<ae cat="FIXED" t="SEARCH" ts="2014-03-06T16:01:30.214-08:00" src="tdk-dispatch-01.ptcloud.int" tr="true" ra="10.201.68.156">
+  <s u="admin" uid="1" sid="8135120517134114828"></s>
+  <msg><![CDATA[
+Query (search) succeeded:Realm[id = 7537946947818401543]
+SearchQuery: Page Size: 15
+Sort Fields: 
+START INTERSECT0
+    Term: mike
+    objType = com.palantir.object.entity
+END INTERSECT0
+
+Results: {}, number of results: 0
+]]></msg>
+</ae>
+<ae cat="FIXED" t="SEARCH" ts="2014-03-06T16:01:30.215-08:00" src="tdk-dispatch-01.ptcloud.int" tr="true" ra="10.201.68.156">
+  <s u="admin" uid="1" sid="8135120517134114828"></s>
+  <msg><![CDATA[
+Query (search) succeeded:Realm[id = 7537946947818401543]
+SearchQuery: Page Size: 15
+Sort Fields: 
+START INTERSECT0
+    Term: mike
+    objType = com.palantir.object.event
+END INTERSECT0
+
+Results: {}, number of results: 0
+]]></msg>
+</ae>
+<ae cat="FIXED" t="SEARCH" ts="2014-03-06T16:01:31.513-08:00" src="tdk-dispatch-01.ptcloud.int" tr="true" ra="10.201.68.156">
+  <s u="admin" uid="1" sid="8135120517134114828"></s>
+  <msg><![CDATA[
+Query (search) succeeded:Realm[id = 7537946947818401543]
+SearchQuery: Page Size: 15
+Sort Fields: 
+START INTERSECT0
+    Term: mike jones
+    objType = com.palantir.object.event
+END INTERSECT0
+
+Results: {}, number of results: 0
+]]></msg>
+</ae>
+<ae cat="FIXED" t="SEARCH" ts="2014-03-06T16:01:31.528-08:00" src="tdk-dispatch-01.ptcloud.int" tr="true" ra="10.201.68.156">
+  <s u="admin" uid="1" sid="8135120517134114828"></s>
+  <msg><![CDATA[
+Query (search) succeeded:Realm[id = 7537946947818401543]
+SearchQuery: Page Size: 15
+Sort Fields: 
+START INTERSECT0
+    Term: mike jones
+    objType = com.aanassar.object.entity
+END INTERSECT0
+
+Results: {}, number of results: 0
+]]></msg>
+</ae>
+<ae cat="FIXED" t="OBJ_STORE" ts="2014-03-06T16:01:38.731-08:00" src="tdk-dispatch-01.ptcloud.int" tr="true" ra="10.201.68.156">
+  <s u="admin" uid="1" sid="8135120517134114828"></s>
+  <msg><![CDATA[
+Stored objects to Realm[id = 7537946947818401543]
+Changes per object:
+S9051203028849896229-R7537946947818401543-4892005033316869593-db:true:
+      Added Property[ids = [3003222031521055049], type = com.palantir.property.Name]
+      Added Property[ids = [4592545685110889905], type = com.palantir.property.IntrinsicTitle]
+
+  Object[id = 4892005033316869593, type = com.palantir.object.person]
+]]></msg>
+</ae>
+<ae cat="FIXED" t="SHUTDOWN" ts="2014-03-06T16:23:12.993-08:00" src="tdk-dispatch-01.ptcloud.int" tr="true">
+  <msg>Shutdown</msg>
+</ae>
+<ae cat="FIXED" t="SECURITY_EXCEPTION" ts="2014-03-06T16:23:21.159-08:00" src="tdk-dispatch-01.ptcloud.int" tr="true" ra="10.201.68.156">
+  <s u="admin" uid="1" sid="8135120517134114828"></s>
+  <msg>Pre-Authorization failed for method public void com.palantir.nexus.InvestigationSubNexus.saveApplicationHistoryEvent(com.palantir.services.UserSessionToken,com.palantir.services.Realm,com.palantir.services.history.SerializableApplicationHistoryEvent,byte[]) throws com.palantir.exception.InvalidParentAppEventException with args param1 (class com.palantir.services.Realm) = Realm[id = 7537946947818401543], param2 (class com.palantir.services.history.SerializableApplicationHistoryEvent) = ?, param3 (class [B) = ?. </msg>
+</ae>
+

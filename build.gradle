@@ -1,0 +1,29 @@
+
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
+
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    
+    compile "org.codehaus.groovy:groovy:${groovy_version}"
+    compile "org.codehaus.groovy:groovy-xml:${groovy_version}"
+	// TODO Exclude jsr166y
+	compile 'org.codehaus.gpars:gpars:1.2.1'
+	
+    compile 'com.google.guava:guava:18.0'
+	// Only necessary for test scripts.
+	runtime 'commons-cli:commons-cli:1.2'
+
+    testCompile 'junit:junit:4.11'
+    testCompile 'hamcrest:hamcrest:1.3.0'
+
+	compile 'org.springframework:spring-core:3.2.4.RELEASE'
+	compile 'net.sf.saxon:Saxon-HE:9.6.0-5'
+	compile 'com.fasterxml:aalto-xml:0.9.11'
+}
