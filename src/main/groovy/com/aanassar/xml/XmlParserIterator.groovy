@@ -9,18 +9,23 @@ public final class XmlParserIterator implements Iterable<Node> {
 	
 	private final Node lastNode = new Node(null, 'dummy', [:])
 
-	private class InternalSplitter extends AbstractXmlSplitter implements Iterator<Node> {
+	private class AsyncSplitter extends AbstractXmlSplitter implements Iterator<Node> {
 		// The blocking queue has a maximum capacity of 12, which is obviously the 
 		// sort of magic number that's considered bad style.
 		private final BlockingQueue<Node> queue = new LinkedBlockingQueue<Node>(12)
 		// I don't remember why I implemented it this way. We should only need a
-		// single reference variable which can be set to null.
+		// single reference variable which can be set to null. If hasEmpty() and 
+		// next() are called alternately, we won't need to cache more than 
+		// one subtree at a time.
 		private final Deque<Node> drain = new LinkedList<Node>()
 		private boolean closed = false
 
-		InternalSplitter(input) {
+		AsyncSplitter(input) {
+			// The actor immediately begins to
+			// read the XML input in the background.
 			Actors.actor {
 				splitXml(input);
+				// Signal the end of parsing.
 				queue.put lastNode
 			}
 		}
@@ -75,6 +80,6 @@ public final class XmlParserIterator implements Iterable<Node> {
 
 	@Override
 	public Iterator<Node> iterator() {
-		return new InternalSplitter(input);
+		return new AsyncSplitter(input);
 	}
 }
