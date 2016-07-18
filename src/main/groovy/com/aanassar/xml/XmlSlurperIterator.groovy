@@ -1,14 +1,11 @@
 package com.aanassar.xml
 
-import java.io.InputStream;
-import java.io.Reader;
-
 import groovy.util.slurpersupport.GPathResult
 import groovy.util.slurpersupport.NoChildren
 import groovyx.gpars.actor.Actors
 import groovyx.gpars.dataflow.DataflowQueue
 
-public class XmlSlurperIterator implements Iterable<GPathResult> {
+public final class XmlSlurperIterator implements Iterable<GPathResult> {
 
 	private class AsyncSplitter extends AbstractXmlSplitter implements Iterator<GPathResult> {
 
@@ -70,5 +67,11 @@ public class XmlSlurperIterator implements Iterable<GPathResult> {
 	@Override
 	public Iterator<GPathResult> iterator() {
 		return new AsyncSplitter(input)
+	}
+	
+	@Override
+	public Spliterator<GPathResult> spliterator() {
+		Iterator iterator = new AsyncSplitter(input)
+		return Spliterators.spliteratorUnknownSize(iterator, Spliterator.IMMUTABLE | Spliterator.NONNULL);
 	}
 }

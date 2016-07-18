@@ -2,8 +2,11 @@ package com.aanassar.xml;
 
 import groovyx.gpars.actor.Actors
 
+import java.util.Spliterator;
 import java.util.concurrent.BlockingQueue
 import java.util.concurrent.LinkedBlockingQueue
+
+import groovy.util.slurpersupport.GPathResult;
 
 public final class XmlParserIterator implements Iterable<Node> {
 	
@@ -81,5 +84,11 @@ public final class XmlParserIterator implements Iterable<Node> {
 	@Override
 	public Iterator<Node> iterator() {
 		return new AsyncSplitter(input);
+	}
+	
+	@Override
+	public Spliterator<Node> spliterator() {
+		Iterator iterator = new AsyncSplitter(input)
+		return Spliterators.spliteratorUnknownSize(iterator(), Spliterator.IMMUTABLE | Spliterator.NONNULL);
 	}
 }
